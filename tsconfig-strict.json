@@ -127,6 +127,8 @@
     "core/templates/domain/exploration/AnswerGroupObjectFactory.ts",
     "core/templates/domain/exploration/HintObjectFactory.ts",
     "core/templates/domain/exploration/HintObjectFactorySpec.ts",
+    "core/templates/domain/exploration/LostChangeObjectFactory.ts",
+    "core/templates/domain/exploration/LostChangeObjectFactorySpec.ts",
     "core/templates/domain/exploration/OutcomeObjectFactory.ts",
     "core/templates/domain/exploration/OutcomeObjectFactorySpec.ts",
     "core/templates/domain/exploration/ParamChangeObjectFactory.ts",
