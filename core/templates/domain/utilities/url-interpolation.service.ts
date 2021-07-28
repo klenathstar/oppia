@@ -115,11 +115,11 @@ export class UrlInterpolationService {
    */
   interpolateUrl(
       urlTemplate: string,
-      interpolationValues: InterpolationValuesType): string | null {
+      interpolationValues: InterpolationValuesType): string {
     if (!urlTemplate) {
       this.alertsService.fatalWarning(
         'Invalid or empty URL template passed in: \'' + urlTemplate + '\'');
-      return null;
+      return '';
     }
 
     // http://stackoverflow.com/questions/4775722
@@ -129,7 +129,7 @@ export class UrlInterpolationService {
       this.alertsService.fatalWarning(
         'Expected an object of interpolation values to be passed into ' +
           'interpolateUrl.');
-      return null;
+      return '';
     }
 
     // Valid pattern: <alphanum>
@@ -143,7 +143,7 @@ export class UrlInterpolationService {
         urlTemplate.match(EMPTY_VARIABLE_REGEX)) {
       this.alertsService.fatalWarning(
         'Invalid URL template received: \'' + urlTemplate + '\'');
-      return null;
+      return '';
     }
 
     let nonStringParams = Object.entries(interpolationValues).filter(
@@ -171,7 +171,7 @@ export class UrlInterpolationService {
         this.alertsService.fatalWarning(
           'Expected variable \'' + currentVarName +
           '\' when interpolating URL.');
-        return null;
+        return '';
       }
       filledUrl = filledUrl.replace(
         INTERPOLATION_VARIABLE_REGEX,

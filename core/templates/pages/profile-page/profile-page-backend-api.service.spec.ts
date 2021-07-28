@@ -26,9 +26,9 @@ import { ProfilePageBackendApiService } from
 import { UrlService } from 'services/contextual/url.service';
 
 describe('Profile test backend API service', () => {
-  let profilePageBackendApiService: ProfilePageBackendApiService = null;
+  let profilePageBackendApiService: ProfilePageBackendApiService;
   let httpTestingController: HttpTestingController;
-  let urlService: UrlService = null;
+  let urlService: UrlService;
   let expectedBody = { creator_username: 'testUsername' };
 
   let ERROR_STATUS_CODE = 500;
@@ -38,11 +38,11 @@ describe('Profile test backend API service', () => {
       imports: [HttpClientTestingModule],
       providers: [ProfilePageBackendApiService]
     });
-    profilePageBackendApiService = TestBed.get(
+    profilePageBackendApiService = TestBed.inject(
       ProfilePageBackendApiService);
-    httpTestingController = TestBed.get(HttpTestingController);
+    httpTestingController = TestBed.inject(HttpTestingController);
 
-    urlService = TestBed.get(UrlService);
+    urlService = TestBed.inject(UrlService);
     spyOn(urlService, 'getPathname').and.returnValue('/profile/testUsername');
   });
 
@@ -172,7 +172,7 @@ describe('Profile test backend API service', () => {
         title: 'Test Title'
       }],
       is_already_subscribed: false,
-      first_contribution_msec: null,
+      first_contribution_msec: 1591296635736.666,
       user_impact_score: 0,
       edited_exp_summary_dicts: [{
         last_updated_msec: 1591296737470.528,
